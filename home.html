@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letourneau Canteen</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Letourneau's Online Food Ordering System</h1>
+    <hr>
+    <h2>Menu</h2>
+    <div class="menu">
+      <!-- Food Items -->
+      <div class="food-item">
+        <img src="bg.jpg" alt="Grilled Chicken Sandwich">
+        <div class="food-details">
+          <h3>Grilled Chicken Sandwich</h3>
+          <p>1 Meal Swipe or $5 <br><br> <i>Includes a chicken sandwich, fries or chips, one drink </i></p>
+          <button onclick="addToCart('Grilled Chicken Sandwich', 5)">Add to Cart</button>
+        
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="quesadilla.jpg" alt="Chicken quesadilla">
+        <div class="food-details">
+          <h3>Chicken quesadilla</h3>
+          <p>1 Meal Swipe or $5 <br><br> <i>Includes a chicken quesadilla, fries or chips, one drink </i></p>
+          <button onclick="addToCart('Chicken quesadilla', 5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="cheese.jpg" alt="Grilled Cheese">
+        <div class="food-details">
+          <h3>Grilled Cheese</h3>
+          <p>1 Meal Swipe or $5 <br><br> <i>Includes a grilled cheese, one drink </i></p>
+          <button onclick="addToCart('Grilled Cheese', 5)">Add to Cart</button>
+        </div>
+      </div>
+      <!--  We can Add more food items here -->
+    </div>
+    <hr>
+    <div class="actions">
+      <a href="checkout.html"><button onclick="checkout()">Checkout</button></a>
+      <a href="index.html"><button>Logout</button></a>
+    </div>
+    <hr>
+    <p><strong>Ordering Instructions:</strong></p>
+    <ul>
+      <li>Select your desired items from the menu.</li>
+      <li>Proceed to checkout.</li>
+      <li>Collect your order from the canteen counter.</li>
+    </ul>
+  </div>
+  <footer>
+    <p><strong>Contact Information:</strong><br>
+    The Hive, AFSC Centre, Letourneau University<br>
+    Phone: (123) 456-7890 <br>
+    Email: <a href="mailto:canteen@example.com">Thehive@letu.edu</a></p>
+  </footer>
+
+  <!-- JavaScript for Cart and Checkout -->
+  <script>
+    // Function to add an item to the cart
+    function addToCart(itemName, price) {
+      // You can perform additional logic here, such as updating a cart array or session
+      alert(itemName + " added to cart! Price: $" + price);
+                  // Retrieve existing cart items from sessionStorage or initialize an empty array
+                  let cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
+            
+            // Create a new item object
+            const newItem = { name: itemName, price: price };
+            
+            // Add the item to the cart array
+            cartItems.push(newItem);
+            
+            // Save the updated cart items back to sessionStorage
+            sessionStorage.setItem('cart', JSON.stringify(cartItems));
+    }
+
+    // Function to handle checkout
+    function checkout() {
+     
+      alert("Proceeding to checkout...");
+
+    }
+  </script>
+</body>
+</html>

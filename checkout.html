@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+    <h1>Checkout</h1>
+
+    <div id="cart-items">
+    
+    </div>
+    <div id="total-price">
+        <strong>Total Price:</strong> $0.00
+    </div>
+    <br><br>
+    <button onclick="confirmOrder()">Confirm Order</button>
+    </div>
+    <script>
+        function displayCart() {
+            const cartContainer = document.getElementById("cart-items");
+            let totalPrice = 0;
+
+            // Retrieve cart items from sessionStorage
+            const cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+            // Display each item in the cart
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.textContent = `${item.name} - $${item.price}`;
+                cartContainer.appendChild(itemDiv);
+                totalPrice += item.price;
+            });
+
+            // Update total price
+            document.getElementById("total-price").textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        }
+
+        function confirmOrder() {
+            // Perform order confirmation logic
+            alert("Your order has been confirmed!");
+            // Clear cart after order confirmation
+            sessionStorage.removeItem('cart');
+            // Redirect or perform other actions
+            window.location.href = "thankyou.html";
+        }
+
+        // Call displayCart function when the page loads
+        window.onload = displayCart;
+    </script>
+</body>
+</html>

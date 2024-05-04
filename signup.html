@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Ordering System Signup</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Letourneau's Food Ordering System</h2>
+    <!--<form id="signupForm" action="signup.php" method="post" onsubmit="validateForm(event)">-->
+      <div class="form-group">
+        <label for="fullName"></label>
+        <input type="text" id="full_Name" name="full_Name" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <label for="studentID"></label>
+        <input type="text" id="studentID" name="studentID" placeholder="Student ID" required>
+      </div>
+      <div class="form-group">
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+      </div>
+      <div class="form-group">
+        <label for="password"></label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <a href="home.html"><button type="submit">Sign Up</button></a>
+    </form>
+    <p>Already have an account? <a href="login.html">Log In Here</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
